@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DollyAPI.Models
 {
-    public class Dolly
+    public class Message
     {
         [Key]
         public int ID { get; set; }
@@ -14,7 +14,7 @@ namespace DollyAPI.Models
         public string Text { get; set; }
         public DateTime MessageSent { get; set; }
 
-        public Dolly()
+        public Message()
         {
             MessageSent = DateTime.Now;
         }

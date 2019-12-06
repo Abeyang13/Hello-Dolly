@@ -21,7 +21,7 @@ namespace DollyAPI.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Dolly> Dollies { get; set; }
+        public DbSet<Message> Messages { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
