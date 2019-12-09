@@ -8,7 +8,6 @@ using System.Web.Http;
 
 namespace DollyAPI.Controllers
 {
-    [Authorize]
     public class MessagesController : ApiController
     {
         ApplicationDbContext db;
@@ -28,9 +27,11 @@ namespace DollyAPI.Controllers
 
         // PUT api/values/5
         // PUT Messages that into database where Dolly can pull the messages
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult Put([FromBody]Message value)
         {
+            db.Messages.Add(value);
+            db.SaveChanges();
             return Ok();
         }
 
