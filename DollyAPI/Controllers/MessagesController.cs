@@ -20,7 +20,8 @@ namespace DollyAPI.Controllers
         // GETALL Messages that was sent in the last 10 minutes
         public IHttpActionResult Get()
         {
-            var messages = db.Messages.Where(m => m.MessageSent < DateTime.Now).ToList();
+            var timeDifference = DateTime.Now.AddMinutes(-10);
+            var messages = db.Messages.Where(m => m.MessageSent >= timeDifference).ToList();
 
             return Ok(messages);
         }
