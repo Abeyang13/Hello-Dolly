@@ -27,7 +27,7 @@ namespace DollyAPI.Controllers
         }
 
         // PUT api/values/5
-        // PUT Messages that into database where Dolly can pull the messages
+        // PUT Messages into database where Dolly can pull the messages
         [HttpPut]
         public IHttpActionResult Put([FromBody]Message value)
         {
