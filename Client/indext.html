@@ -3,15 +3,27 @@
 <head>
     <title>Dolly</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="message.css">
 </head>
 <body>
-    <h1 align="center">Dolly's Messages</h1>
+    <div class="jumbotron text-center" style="color: blanchedalmond">
+    <h1>Dolly's Messages</h1>
     <br>
-    <br>
-    <div style="width:500px;padding:20px;" align="center">
-        <table id="all-messages" border="1" class="table" style="text-align: center;"></table>
+    <p>All Messages Shown Below</p>
     </div>
+    <br>
+    <br>
+    <div class="container">
+        <table id="all-messages" border="2" class="table" style="text-align: center">
+        <thead style="color:blanchedalmond">
+            <th>Name</th>
+            <th>Message</th>
+        </thead>
+        </table>
+    </div>
+    <div id="no-messages" align="center"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="./app.js"></script>
 </body>

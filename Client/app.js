@@ -21,26 +21,31 @@
 //     }
 //     $('#message-form').submit( putForm );
 // })(jQuery);
-document.getElementById("all-messages").innerHTML = "";
+$(document).ready(getAllMessages);
 //Dolly Grabs all messages that are from the past 10 minutes
 function getAllMessages(){
-    console.log();
+
     $.ajax({
         url: 'https://localhost:44388/api/messages',
-        dataType: 'json',
         type: 'get',
         async: true,
         data: JSON,
         success: function (data){
-            var row = `<tr><th>Name</th><th>Text</th></tr>`;
-            $.each(data,function (index, obj){
-                row +=
-                "<tr><td>"
-                + obj.Name + "</td><td>"
-                + obj.Text + "</td></tr>";
-            });
-            $("#all-messages").append(row);
+            if (data[0] == null){
+                document.getElementById("no-messages").innerHTML = "You Have No Messages";
+            }
+            else{
+                for (let el in data) {
+                    $("#all-messages").append(
+                    `<tr>
+                    <td>${data[el].Name}</td>
+                    <td>${data[el].Text}</td>
+                    </tr>`)
+                }
+            }
+        },
+        error: function (errorThrown){
+            console.log(errorThrown);
         }
     });
 }
-$(document).ready(getAllMessages);
