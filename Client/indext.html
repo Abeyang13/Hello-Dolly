@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="message.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
 </head>
 <body>
     <div class="jumbotron text-center" style="color: blanchedalmond">
@@ -17,14 +19,10 @@
     <br>
     <div class="container">
         <table id="all-messages" border="2" class="table" style="text-align: center">
-        <thead style="color:blanchedalmond">
-            <th>Name</th>
-            <th>Message</th>
+        <thead id = "header" style="color:blanchedalmond">
         </thead>
         </table>
     </div>
-    <div id="no-messages" align="center"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="./app.js"></script>
+    <div id="no-messages" style="text-align: center;"></div>
 </body>
 </html>

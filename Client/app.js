@@ -1,3 +1,5 @@
+//PUT request so that client can message Dolly
+
 // (function($){
 //     function putForm( e ){
 //         var info = {
@@ -21,20 +23,23 @@
 //     }
 //     $('#message-form').submit( putForm );
 // })(jQuery);
-$(document).ready(getAllMessages);
+
 //Dolly Grabs all messages that are from the past 10 minutes
 function getAllMessages(){
-
     $.ajax({
         url: 'https://localhost:44388/api/messages',
         type: 'get',
         async: true,
         data: JSON,
         success: function (data){
-            if (data[0] == null){
-                document.getElementById("no-messages").innerHTML = "You Have No Messages";
+            console.log(data);
+            $("#all-messages tr").remove();
+            $("#no-messages").empty();
+            if (data.length == 0){
+                document.getElementById("no-messages").innerHTML = "No Messages";
             }
             else{
+                var row = `<tr><th>Name</th><th>Message</th></tr>`
                 for (let el in data) {
                     $("#all-messages").append(
                     `<tr>
@@ -42,6 +47,7 @@ function getAllMessages(){
                     <td>${data[el].Text}</td>
                     </tr>`)
                 }
+                $("#header").append(row);
             }
         },
         error: function (errorThrown){
@@ -49,3 +55,7 @@ function getAllMessages(){
         }
     });
 }
+$(document).ready(function(){
+    setInterval(getAllMessages,1000);
+   });
+
