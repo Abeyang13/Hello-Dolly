@@ -1,29 +1,3 @@
-//PUT request so that client can message Dolly
-
-(function($){
-    function putForm( e ){
-        var info = {
-            Name : this["name"].value,
-            Text : this["text"].value,
-        };
-
-        $.ajax({
-            url: 'https://localhost:44388/api/messages',
-            type: 'put',
-            contentType: 'application/json',
-            data: JSON.stringify(info),
-            success: function( data, textStatus, jQxhr){
-                console.log("Success");        
-            },
-            error: function( jqXhr, textStatus, errorThrown ){
-                console.log( errorThrown);
-            }
-        });
-        e.preventDefault();
-    }
-    $('#message-form').submit( putForm );
-})(jQuery);
-
 //Dolly Grabs all messages that are from the past 10 minutes
 function getAllMessages(){
     $.ajax({
