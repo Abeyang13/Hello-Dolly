@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="message.css">
 </head>
 <body>
-    <div id="response"><pre></pre></div>
     <div class="jumbotron text=-center" style="color: blanchedalmond">
     <h1 align="center" id="client-header">Message Dolly</h1>
     <h5 align="center">Enter a message to Dolly</h5>
     </div>
+    <div class="container" style="width: 500px;">
     <form id="message-form" align="center">
         <label for="name-text">Enter your name</label>
         <div><input type="text" name="name" id="name-text"/></div>
@@ -25,6 +25,7 @@
         <span id="error-message" class="text-danger"></span>
         <span id="success-message" class="text-success"></span>
     </form>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="./client.js"></script>
 </body>

@@ -5,9 +5,10 @@
             Name : this["name"].value,
             Text : this["text"].value
         };
+
         if(info.Name == '' || info.Text == '')
         {
-            $('#error-message').html("All Fields are required")
+            $('#error-message').html("All fields are required");
         }
         else
         {
@@ -18,8 +19,9 @@
                 contentType: 'application/json',
                 data: JSON.stringify(info),
                 success: function(data){
+                    console.log(data);
                     $("form").trigger("reset");
-                    $('#success-message').fadeIn().html(data);
+                    $('#success-message').fadeIn().html("Successfully sent");
                     setTimeout(function(){
                         $('#success-message').fadeOut('slow');
                     }, 2000);
